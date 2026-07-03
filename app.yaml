@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gateway-repro
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/vishnu97770/argocd-28547-repro
+    targetRevision: HEAD
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
