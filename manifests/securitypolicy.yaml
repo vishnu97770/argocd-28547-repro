@@ -11,7 +11,7 @@ spec:
       name: allow-trusted-cidrs
       principal:
         clientCIDRs:
-        - 0.0.0.0/16
+        - 0.0.0.0/8
   targetRefs:
   - group: gateway.networking.k8s.io
     kind: Gateway
