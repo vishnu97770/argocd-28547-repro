@@ -7,7 +7,7 @@ spec:
   extAuth:
     grpc:
       backendRefs:
-      - name: gatective-gateway-internal
+      - name: gatective-internal
         namespace: envoy-gateway-system
         port: 8080
   targetRefs:
