@@ -1,0 +1,18 @@
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: test-allowlist
+  namespace: default
+spec:
+  authorization:
+    defaultAction: Deny
+    rules:
+    - action: Allow
+      name: allow-trusted-cidrs
+      principal:
+        clientCIDRs:
+        - 0.0.0.0/0
+  targetRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: test-gateway
