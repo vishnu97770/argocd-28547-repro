@@ -4,14 +4,12 @@ metadata:
   name: test-allowlist
   namespace: default
 spec:
-  authorization:
-    defaultAction: Deny
-    rules:
-    - action: Allow
-      name: allow-trusted-cidrs
-      principal:
-        clientCIDRs:
-        - 0.0.0.0/8
+  extAuth:
+    grpc:
+      backendRefs:
+      - name: gatective-gateway-internal
+        namespace: envoy-gateway-system
+        port: 8080
   targetRefs:
   - group: gateway.networking.k8s.io
     kind: Gateway
